@@ -8,7 +8,7 @@ const projects = [
         description: "Boi Poka is a modern, dark-themed book management app built with React and JavaScript. It allows book lovers to easily discover new titles, view details like genre and year, and organize their personal reading lists through a clean, intuitive interface.",
         image: "https://i.ibb.co.com/RpP1Chp2/boi-poka.png",
         tags: ["JavaScript","Tailwind", "React"],
-        link: "https://maruf-ahamed-fardin.github.io/boi-poka/",
+        link: "https://boi-poka-lac.vercel.app/",
         github: "https://github.com/maruf-ahamed-fardin/boi-poka"
     },
     {
