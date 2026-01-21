@@ -6,7 +6,7 @@ const projects = [
     {
         title: "Boi Poka",
         description: "Boi Poka is a modern, dark-themed book management app built with React and JavaScript. It allows book lovers to easily discover new titles, view details like genre and year, and organize their personal reading lists through a clean, intuitive interface.",
-        image: "/public/boi_poka.png",
+        image: "https://i.ibb.co.com/RpP1Chp2/boi-poka.png",
         tags: ["JavaScript","Tailwind", "React"],
         link: "https://maruf-ahamed-fardin.github.io/boi-poka/",
         github: "https://github.com/maruf-ahamed-fardin/boi-poka"
@@ -14,7 +14,7 @@ const projects = [
     {
         title: "Dragon News",
         description: "The Dragon News is a modern, responsive news application designed with a professional Newspaper aesthetic. Built with a focus on clean content hierarchy and user experience, it allows readers to browse real-time updates across 11 diverse categories, from Politics to Technology.",
-        image: "/public/dragon_news.png",
+        image: "https://i.ibb.co.com/WvPRLp2S/dragon-news.png",
         tags: ["Tailwind", "React", "firebase"],
         link: "https://dragon-news-54137.web.app/category/1",
         github:"https://github.com/maruf-ahamed-fardin/dragon-news"
@@ -22,7 +22,7 @@ const projects = [
     {
         title: "Hunting Phone",
         description: "Developed a responsive, search-driven web application for browsing mobile devices. This project features a dynamic search engine that filters real-time data and renders it into a clean, component-based grid.",
-        image: "/public/hunting_phone.png",
+        image: "https://i.ibb.co.com/2fJL96V/hunting-phone.png",
         tags: ["JavaScript","Tailwind"],
         link: "https://maruf-ahamed-fardin.github.io/hunting-Phone/",
         github:"https://github.com/maruf-ahamed-fardin/hunting-Phone"
@@ -30,7 +30,7 @@ const projects = [
     {
         title: "Alphabet Clash",
         description: "An engaging, browser-based typing game designed to test and improve keyboard speed and accuracy. This project features a vibrant, high-energy UI and focuses on real-time event handling and game logic.",
-        image: "/public/alpha.png",
+        image: "https://i.ibb.co.com/scVTyKY/alpha.png",
         tags: ["JavaScript","Tailwind"],
         link: "https://maruf-ahamed-fardin.github.io/alphabet-clash/",
         github:"https://github.com/maruf-ahamed-fardin/alphabet-clash"
