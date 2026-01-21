@@ -13,8 +13,8 @@ function App() {
  
 
   return <>
-  <div className='min-h-screen overflow-hidden'>
-  <Navbar/>
+  <div className='min-h-screen overflow-hidden lg:pl-10 lg:pr-10'>
+  <Navbar  />
   <main>
   <Hero/>
   <About/>

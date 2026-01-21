@@ -25,17 +25,9 @@ const contactInfo = [
 ];
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({
-    type: null,
-    message: "",
-  });
+  const [submitStatus, setSubmitStatus] = useState({ type: null, message: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,8 +68,7 @@ const Contact = () => {
       console.error("EmailJS Error:", error);
       setSubmitStatus({
         type: "error",
-        message:
-          error?.message || "Failed to send message. Please try again later.",
+        message: error?.message || "Failed to send message. Please try again later.",
       });
     } finally {
       setIsLoading(false);
@@ -85,35 +76,40 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
+    <section
+      id="contact"
+      className="relative overflow-hidden py-20 sm:py-28 lg:py-32"
+    >
       {/* background blur */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
+        <div className="absolute top-12 left-6 sm:top-1/4 sm:left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-6 sm:bottom-1/4 sm:right-1/4 w-56 h-56 sm:w-64 sm:h-64 bg-highlight/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto relative z-10 px-4 sm:px-6">
         {/* header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sm font-medium tracking-wider uppercase text-secondary-foreground">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-16">
+          <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-secondary-foreground">
             Get In Touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-secondary-foreground">
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 text-secondary-foreground leading-tight">
             Let&apos;s build{" "}
             <span className="font-serif italic font-normal text-white">
               something great.
             </span>
           </h2>
-          <p className="text-muted-foreground">
+
+          <p className="text-sm sm:text-base text-muted-foreground">
             Have a project in mind? I&apos;d love to hear about it.
           </p>
         </div>
 
         {/* content */}
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
           {/* form */}
-          <div className="glass p-8 rounded-3xl border border-primary/30">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="glass p-6 sm:p-8 rounded-3xl border border-primary/30">
+            <form className="space-y-5 sm:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
@@ -127,7 +123,8 @@ const Contact = () => {
                   placeholder="Your name..."
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:ring-1 focus:ring-primary outline-none"
+                  className="w-full px-4 py-3.5 bg-surface rounded-xl border border-border outline-none
+                             focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:border-primary/40"
                 />
               </div>
 
@@ -144,7 +141,8 @@ const Contact = () => {
                   placeholder="your@email.com"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:ring-1 focus:ring-primary outline-none"
+                  className="w-full px-4 py-3.5 bg-surface rounded-xl border border-border outline-none
+                             focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:border-primary/40"
                 />
               </div>
 
@@ -161,12 +159,20 @@ const Contact = () => {
                   placeholder="Your message..."
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:ring-1 focus:ring-primary outline-none resize-none"
+                  className="w-full px-4 py-3.5 bg-surface rounded-xl border border-border outline-none resize-none
+                             focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:border-primary/40"
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
-                {isLoading ? "Sending..." : (
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  "Sending..."
+                ) : (
                   <>
                     Send Message
                     <Send className="w-5 h-5" />
@@ -178,25 +184,25 @@ const Contact = () => {
                 <div
                   role="status"
                   aria-live="polite"
-                  className={`flex items-center gap-3 p-4 rounded-xl ${
+                  className={`flex items-start sm:items-center gap-3 p-4 rounded-xl ${
                     submitStatus.type === "success"
                       ? "bg-green-500/10 border border-green-500/20 text-green-400"
                       : "bg-red-500/10 border border-red-500/20 text-red-400"
                   }`}
                 >
                   {submitStatus.type === "success" ? (
-                    <CheckCircle className="w-5 h-5" />
+                    <CheckCircle className="w-5 h-5 mt-0.5 sm:mt-0" />
                   ) : (
-                    <AlertCircle className="w-5 h-5" />
+                    <AlertCircle className="w-5 h-5 mt-0.5 sm:mt-0" />
                   )}
-                  <p className="text-sm">{submitStatus.message}</p>
+                  <p className="text-sm leading-relaxed">{submitStatus.message}</p>
                 </div>
               )}
             </form>
           </div>
 
           {/* right column */}
-          <div className="space-y-6">
+          <div className="space-y-5 sm:space-y-6">
             {/* contact info */}
             {contactInfo.map((item) => {
               const Icon = item.icon;
@@ -206,14 +212,17 @@ const Contact = () => {
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel="noreferrer"
-                  className="glass p-6 rounded-3xl border border-primary/20 flex items-center gap-4 hover:border-primary/40 transition"
+                  className="glass p-5 sm:p-6 rounded-3xl border border-primary/20 flex items-center gap-4
+                             hover:border-primary/40 transition
+                             active:scale-[0.99]"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-primary" />
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
-                  <div>
+
+                  <div className="min-w-0">
                     <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="font-medium text-secondary-foreground">
+                    <p className="font-medium text-secondary-foreground break-words">
                       {item.value}
                     </p>
                   </div>
@@ -222,7 +231,7 @@ const Contact = () => {
             })}
 
             {/* availability */}
-            <div className="glass p-6 rounded-3xl border border-primary/20">
+            <div className="glass p-5 sm:p-6 rounded-3xl border border-primary/20">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-green-500/40 animate-ping" />
@@ -234,9 +243,9 @@ const Contact = () => {
               </div>
 
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                I&apos;m currently open to new opportunities and exciting
-                projects. Whether you need a full-time engineer or a freelance
-                consultant, let&apos;s talk!
+                I&apos;m currently open to new opportunities and exciting projects.
+                Whether you need a full-time engineer or a freelance consultant,
+                let&apos;s talk!
               </p>
             </div>
           </div>
